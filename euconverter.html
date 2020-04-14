@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tools</title>
+	<script>
+		function themeConv () {
+			if (document.getElementById('themeSel').value == 'light') {
+				document.body.style.background = "white";
+				document.body.style.color = "black";
+				} else if (document.getElementById('themeSel').value == 'dark') {
+				document.body.style.background = "black";
+				document.body.style.color = "white";
+				}
+			}
+
+		function convConv () {
+			if (document.getElementById('convSel').value == 'fuelConsumpC') {
+				document.getElementById('fuelConsump').style.display = "block";
+				document.getElementById('length').style.display = "none";
+				document.getElementById('temp').style.display = "none";
+				} else if (document.getElementById('convSel').value == 'lenghtC') {
+				document.getElementById('length').style.display = "block";
+				document.getElementById('fuelConsump').style.display = "none";
+				document.getElementById('temp').style.display = "none";
+				} else if (document.getElementById('convSel').value == 'tempC') {
+				document.getElementById('temp').style.display = "block";
+				document.getElementById('fuelConsump').style.display = "none";
+				document.getElementById('length').style.display = "none";
+				}
+		}
+		function fuelConsumpSel () {
+			if (document.getElementById('fuelConsumpQ').value == 'lkm') {
+				document.getElementById('fuelConsumpA').value = 'mpg';
+				} else if (document.getElementById('fuelConsumpQ').value == 'mpg') {
+				document.getElementById('fuelConsumpA').value = 'lkm';
+				}
+			}
+
+		function fuelConsumptionConv () {
+			var fcQ = document.getElementById('fuelConsumpQuestion').value;
+
+			document.getElementById('fuelConsmpAnswer').value = (235.215/fcQ).toFixed(2);
+			}
+
+		function lengthSel () {
+			if (document.getElementById('lengthQ').value == 'km') {
+				document.getElementById('lengthA').value = 'mile';
+			} else if (document.getElementById('lengthQ').value == 'mile') {
+				document.getElementById('lengthA').value = 'km';
+				}
+			}
+
+		function lengthConv () {
+			var lQ = document.getElementById('lengthQuestion').value;
+			if (document.getElementById('lengthQ').value == 'km') {
+				document.getElementById('lengthAnswer').value = (lQ/1.609).toFixed(2);
+				} else if (document.getElementById('lengthQ').value == 'mile') {
+				document.getElementById('lengthAnswer').value = (lQ*1.609).toFixed(2);
+				}
+			}
+			
+		function tempSel () {
+			if (document.getElementById('tempQ').value == 'dC') {
+				document.getElementById('tempA').value = 'dF';
+			} else if (document.getElementById('tempQ').value == 'dF') {
+				document.getElementById('tempA').value = 'dC';
+				}
+			}
+			
+		function tempConv () {
+			var tQ = document.getElementById('tempQuestion').value;
+			if (document.getElementById('tempQ').value == 'dC') {
+				document.getElementById('tempAnswer').value = ((tQ*(9/5))+32).toFixed(2);
+				} else if (document.getElementById('tempQ').value == 'dF') {
+				document.getElementById('tempAnswer').value = ((tQ-32)*(5/9)).toFixed(2);
+				}
+			}
+	</script>
+	<style type="text/css">
+		body {
+			background-color: black;
+			color: white;
+		}
+		fieldset {
+			text-align: center;
+			display: none;
+		}
+		legend {
+			text-align: left;
+		}
+		input {
+			text-align: center;
+			width: 40%;
+
+		}
+		select {
+			width: auto;
+			text-align-last: center;
+		}
+		button {
+			width: auto;
+			text-align-last: center;
+		}
+		h1 {
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<h1>
+		Unit Converter
+	</h1>
+	<div>
+	<span id="theme">
+		<select id="themeSel" onchange="themeConv()">
+			<option value="light">Light</option>
+			<option value="dark">Dark</option>
+		</select>
+	</span>
+	<span id="converter">
+		<select id="convSel" onchange="convConv()">
+			<option value="fuelConsumpC">Fuel Consumption</option>
+			<option value="lenghtC">Length</option>
+			<option value="tempC">Temperature</option>
+		</select>
+	</span>
+	</div>
+	<p></p>
+	<fieldset id="fuelConsump">
+		<legend>
+			Fuel Consumption 
+			<br>
+			<button onclick="fuelConsumptionConv()">Convert</button>
+		</legend>
+		<select id="fuelConsumpQ" onchange="fuelConsumpSel()">
+			<option value="lkm">L/100km</option>
+			<option value="mpg">mpg</option>
+		</select>
+		<input type="text" id="fuelConsumpQuestion">
+		<p>
+		<select id="fuelConsumpA" disabled>
+			<option value="mpg">mpg</option>
+			<option value="lkm">L/100km</option>
+		</select>
+			<input type="text" id="fuelConsmpAnswer" value="Answer" readonly>
+	</fieldset>
+	<fieldset id="length">
+		<legend>
+			Length
+			<br>
+			<button onclick="lengthConv()">Convert</button>
+		</legend>
+		<select id="lengthQ" onchange="lengthSel()">
+			<option value="km">km</option>
+			<option value="mile">mile</option>
+		</select>
+		<input type="text" id="lengthQuestion">
+		<p>
+		<select id="lengthA" disabled>
+			<option value="mile">mile</option>
+			<option value="km">km</option>			
+		</select>
+		<input type="text" id="lengthAnswer" value="Answer" readonly>
+	</fieldset>
+	<fieldset id="temp">
+		<legend>
+			Temperature
+			<br>
+			<button onclick="tempConv()">Convert</button>
+		</legend>
+		<select id="tempQ" onchange="tempSel()">
+			<option value="dC">°C</option>
+			<option value="dF">°F</option>
+		</select>
+		<input type="text" id="tempQuestion">
+		<p>
+		<select id="tempA" disabled>			
+			<option value="dF">°F</option>
+			<option value="dC">°C</option>
+		</select>
+		<input type="text" id="tempAnswer" value="Answer" readonly>
+	</fieldset>
+</body>
+</html>
