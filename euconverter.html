@@ -18,16 +18,61 @@
 				document.getElementById('fuelConsump').style.display = "block";
 				document.getElementById('length').style.display = "none";
 				document.getElementById('temp').style.display = "none";
+				document.getElementById('weight').style.display = "none";
+				document.getElementById('speed').style.display = "none";
+				document.getElementById('pressure').style.display = "none";
+				document.getElementById('power').style.display = "none";
 				} else if (document.getElementById('convSel').value == 'lenghtC') {
 				document.getElementById('length').style.display = "block";
 				document.getElementById('fuelConsump').style.display = "none";
 				document.getElementById('temp').style.display = "none";
+				document.getElementById('weight').style.display = "none";
+				document.getElementById('speed').style.display = "none";
+				document.getElementById('pressure').style.display = "none";
+				document.getElementById('power').style.display = "none";
 				} else if (document.getElementById('convSel').value == 'tempC') {
 				document.getElementById('temp').style.display = "block";
 				document.getElementById('fuelConsump').style.display = "none";
 				document.getElementById('length').style.display = "none";
+				document.getElementById('weight').style.display = "none";
+				document.getElementById('speed').style.display = "none";
+				document.getElementById('pressure').style.display = "none";
+				document.getElementById('power').style.display = "none";
+				} else if (document.getElementById('convSel').value == 'weightC') {
+				document.getElementById('weight').style.display = "block";
+				document.getElementById('fuelConsump').style.display = "none";
+				document.getElementById('length').style.display = "none";
+				document.getElementById('temp').style.display = "none";
+				document.getElementById('speed').style.display = "none";
+				document.getElementById('pressure').style.display = "none";
+				document.getElementById('power').style.display = "none";
+				} else if (document.getElementById('convSel').value == 'speedC') {
+				document.getElementById('speed').style.display = "block";
+				document.getElementById('fuelConsump').style.display = "none";
+				document.getElementById('length').style.display = "none";
+				document.getElementById('temp').style.display = "none";
+				document.getElementById('weight').style.display = "none";
+				document.getElementById('pressure').style.display = "none";
+				document.getElementById('power').style.display = "none";
+				} else if (document.getElementById('convSel').value == 'pressureC') {
+				document.getElementById('pressure').style.display = "block";
+				document.getElementById('fuelConsump').style.display = "none";
+				document.getElementById('length').style.display = "none";
+				document.getElementById('temp').style.display = "none";
+				document.getElementById('weight').style.display = "none";
+				document.getElementById('speed').style.display = "none";
+				document.getElementById('power').style.display = "none";
+				} else if (document.getElementById('convSel').value == 'powerC') {
+				document.getElementById('power').style.display = "block";
+				document.getElementById('fuelConsump').style.display = "none";
+				document.getElementById('length').style.display = "none";
+				document.getElementById('temp').style.display = "none";
+				document.getElementById('weight').style.display = "none";
+				document.getElementById('speed').style.display = "none";
+				document.getElementById('pressure').style.display = "none";
 				}
-		}
+			}
+
 		function fuelConsumpSel () {
 			if (document.getElementById('fuelConsumpQ').value == 'lkm') {
 				document.getElementById('fuelConsumpA').value = 'mpg';
@@ -75,6 +120,75 @@
 				document.getElementById('tempAnswer').value = ((tQ-32)*(5/9)).toFixed(2);
 				}
 			}
+
+		function weightSel () {
+			if (document.getElementById('weightQ').value == 'kg') {
+				document.getElementById('weightA').value = 'lbs';
+			} else if (document.getElementById('weightQ').value == 'lbs') {
+				document.getElementById('weightA').value = 'kg';
+				}
+			}
+
+		function weightConv () {
+			var wQ = document.getElementById('weightQuestion').value;
+			if (document.getElementById('weightQ').value == 'kg') {
+				document.getElementById('weightAnswer').value = (wQ*2.205).toFixed(2);
+				} else if (document.getElementById('weightQ').value == 'lbs') {
+				document.getElementById('weightAnswer').value = (wQ/2.205).toFixed(2);
+				}
+			}
+
+		function speedSel () {
+			if (document.getElementById('speedQ').value == 'kmh') {
+				document.getElementById('speedA').value = 'mph';
+			} else if (document.getElementById('speedQ').value == 'mph') {
+				document.getElementById('speedA').value = 'kmh';
+				}
+			}
+
+		function speedConv () {
+			var sQ = document.getElementById('speedQuestion').value;
+			if (document.getElementById('speedQ').value == 'kmh') {
+				document.getElementById('speedAnswer').value = (sQ/1.609).toFixed(2);
+				} else if (document.getElementById('speedQ').value == 'mph') {
+				document.getElementById('speedAnswer').value = (sQ*1.609).toFixed(2);
+				}
+			}
+
+		function pressureSel () {
+			if (document.getElementById('pressureQ').value == 'psi') {
+				document.getElementById('pressureA').value = 'bar';
+			} else if (document.getElementById('pressureQ').value == 'bar') {
+				document.getElementById('pressureA').value = 'psi';
+				}
+			}
+
+		function pressureConv () {
+			var pQ = document.getElementById('pressureQuestion').value;
+			if (document.getElementById('pressureQ').value == 'psi') {
+				document.getElementById('pressureAnswer').value = (pQ/14.504).toFixed(2);
+				} else if (document.getElementById('pressureQ').value == 'bar') {
+				document.getElementById('pressureAnswer').value = (pQ*14.504).toFixed(2);
+				}
+			}
+
+		function powerSel () {
+			if (document.getElementById('powerQ').value == 'hp') {
+				document.getElementById('powerA').value = 'kw';
+			} else if (document.getElementById('powerQ').value == 'kw') {
+				document.getElementById('powerA').value = 'hp';
+				}
+			}
+
+		function powerConv () {
+			var pwQ = document.getElementById('powerQuestion').value;
+			if (document.getElementById('powerQ').value == 'hp') {
+				document.getElementById('powerAnswer').value = (pwQ/1.341).toFixed(2);
+				} else if (document.getElementById('powerQ').value == 'kw') {
+				document.getElementById('powerAnswer').value = (pwQ*1.341).toFixed(2);
+				}
+			}
+
 	</script>
 	<style type="text/css">
 		body {
@@ -113,72 +227,135 @@
 	<div>
 	<span id="theme">
 		<select id="themeSel" onchange="themeConv()">
+			<option selected disabled>Choose the theme</option>
 			<option value="light">Light</option>
 			<option value="dark">Dark</option>
 		</select>
 	</span>
 	<span id="converter">
 		<select id="convSel" onchange="convConv()">
+			<option selected disabled>Choose the unit</option>
 			<option value="fuelConsumpC">Fuel Consumption</option>
 			<option value="lenghtC">Length</option>
 			<option value="tempC">Temperature</option>
+			<option value="weightC">Weight</option>
+			<option value="speedC">Speed</option>
+			<option value="pressureC">Pressure</option>
+			<option value="powerC">Power</option>
 		</select>
 	</span>
 	</div>
 	<p></p>
 	<fieldset id="fuelConsump">
 		<legend>
-			Fuel Consumption 
-			<br>
-			<button onclick="fuelConsumptionConv()">Convert</button>
+			Fuel Consumption
 		</legend>
 		<select id="fuelConsumpQ" onchange="fuelConsumpSel()">
 			<option value="lkm">L/100km</option>
 			<option value="mpg">mpg</option>
 		</select>
-		<input type="text" id="fuelConsumpQuestion">
+		<input type="number" id="fuelConsumpQuestion" onkeyup="if(event.keyCode == 13) {fuelConsumptionConv()}">
 		<p>
 		<select id="fuelConsumpA" disabled>
 			<option value="mpg">mpg</option>
 			<option value="lkm">L/100km</option>
 		</select>
-			<input type="text" id="fuelConsmpAnswer" value="Answer" readonly>
+			<input type="number" id="fuelConsmpAnswer" value="Answer" readonly>
 	</fieldset>
 	<fieldset id="length">
 		<legend>
 			Length
-			<br>
-			<button onclick="lengthConv()">Convert</button>
 		</legend>
 		<select id="lengthQ" onchange="lengthSel()">
 			<option value="km">km</option>
 			<option value="mile">mile</option>
 		</select>
-		<input type="text" id="lengthQuestion">
+		<input type="number" id="lengthQuestion" onkeyup="if(event.keyCode == 13) {lengthConv()}">
 		<p>
 		<select id="lengthA" disabled>
 			<option value="mile">mile</option>
 			<option value="km">km</option>			
 		</select>
-		<input type="text" id="lengthAnswer" value="Answer" readonly>
+		<input type="number" id="lengthAnswer" value="Answer" readonly>
 	</fieldset>
 	<fieldset id="temp">
 		<legend>
 			Temperature
-			<br>
-			<button onclick="tempConv()">Convert</button>
 		</legend>
 		<select id="tempQ" onchange="tempSel()">
 			<option value="dC">°C</option>
 			<option value="dF">°F</option>
 		</select>
-		<input type="text" id="tempQuestion">
+		<input type="number" id="tempQuestion" onkeyup="if(event.keyCode == 13) {tempConv()}">
 		<p>
 		<select id="tempA" disabled>			
 			<option value="dF">°F</option>
 			<option value="dC">°C</option>
 		</select>
-		<input type="text" id="tempAnswer" value="Answer" readonly>
+		<input type="number" id="tempAnswer" value="Answer" readonly>
+	</fieldset>
+	<fieldset id="weight">
+		<legend>
+			Weight
+		</legend>
+		<select id="weightQ" onchange="weightSel()">
+			<option value="kg">kg</option>
+			<option value="lbs">lbs</option>
+		</select>
+		<input type="number" id="weightQuestion" onkeyup="if(event.keyCode == 13) {weightConv()}">
+		<p>
+		<select id="weightA" disabled>			
+			<option value="lbs">lbs</option>
+			<option value="kg">kg</option>
+		</select>
+		<input type="number" id="weightAnswer" value="Answer" readonly>
+	</fieldset>
+	<fieldset id="speed">
+		<legend>
+			Speed
+		</legend>
+		<select id="speedQ" onchange="speedSel()">
+			<option value="kmh">km/h</option>
+			<option value="mph">mph</option>
+		</select>
+		<input type="number" id="speedQuestion" onkeyup="if(event.keyCode == 13) {speedConv()}">
+		<p>
+		<select id="speedA" disabled>			
+			<option value="mph">mph</option>
+			<option value="kmh">km/h</option>
+		</select>
+		<input type="number" id="speedAnswer" value="Answer" readonly>
+	</fieldset>
+	<fieldset id="pressure">
+		<legend>
+			Pressure
+		<select id="pressureQ" onchange="pressureSel()">
+			<option value="psi">psi</option>
+			<option value="bar">bar</option>
+		</select>
+		<input type="number" id="pressureQuestion" onkeyup="if(event.keyCode == 13) {pressureConv()}">
+		<p>
+		<select id="pressureA" disabled>			
+			<option value="bar">bar</option>
+			<option value="psi">psi</option>
+		</select>
+		<input type="number" id="pressureAnswer" value="Answer" readonly>
+	</fieldset>
+	<fieldset id="power">
+		<legend>
+			Power
+		</legend>
+		<select id="powerQ" onchange="powerSel()">
+			<option value="hp">hp</option>
+			<option value="kw">kW</option>
+		</select>
+		<input type="number" id="powerQuestion" onkeyup="if(event.keyCode == 13) {powerConv()}">
+		<p>
+		<select id="powerA" disabled>			
+			<option value="kw">kW</option>
+			<option value="hp">hp</option>
+		</select>
+		<input type="number" id="powerAnswer" value="Answer" readonly>
 	</fieldset>
 </body>
 </html>
